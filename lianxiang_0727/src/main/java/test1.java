@@ -6,7 +6,8 @@ public class test1 {
 
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
-        System.out.println(231);
+        System.out.println(111111);
+
 
     }
 
