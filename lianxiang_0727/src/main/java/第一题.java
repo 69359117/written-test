@@ -35,7 +35,8 @@ public class t11 {
                 inSecond = Integer.valueOf(inTime[2]);
                 start++;
             }
-            if(start >= N) break;
+//            while(start < N && temp[start][0].equals("in")) start++;
+//            if(start >= N) break;
 
             //输出时间选第一次的
             String[] outTime = temp[start][1].split(":");
@@ -44,19 +45,25 @@ public class t11 {
             int outSecond = Integer.valueOf(outTime[2]);
             start++;
 
-            if(outSecond - inSecond >= 0) sumSecond += outSecond - inSecond;
+            int tempSecond = 0;
+            int tempMinus = 0;
+            if(outSecond - inSecond >= 0) tempSecond = outSecond - inSecond;
             else {
-                sumSecond +=  60 + outSecond - inSecond;
+                tempSecond = 60 + outSecond - inSecond;
                 outMinits--;
             }
-            if(outMinits - inMinits >= 0) sumMinus += outMinits - inMinits;
+            sumSecond += tempSecond;
+
+            if(outMinits - inMinits >= 0) tempMinus = outMinits - inMinits;
             else {
-                sumMinus += 60 + outMinits - inMinits;
+                tempMinus = 60 + outMinits - inMinits;
                 outHour--;
             }
+            sumMinus += tempMinus;
             if(outHour - inHour >= 0) sumHour += outHour - inHour;
             else {
-
+                sumSecond -= tempSecond;
+                sumMinus -= tempMinus;
             }
 
 
@@ -70,10 +77,12 @@ public class t11 {
             sumHour++;
             sumMinus-=60;
         }
-        if(sumHour < 10)
-            System.out.println("0" + sumHour+":"+sumMinus+":"+sumSecond);
-        else
-            System.out.println(sumHour+":"+sumMinus+":"+sumSecond);
+        String zero = "0";
+        String sHour = sumHour < 10 ? zero + sumHour : String.valueOf(sumHour);
+        String sMinis = sumMinus < 10 ? zero + sumMinus : String.valueOf(sumMinus);
+        String sSecond = sumSecond < 10 ? zero + sumSecond : String.valueOf(sumSecond);
+
+        System.out.println(sHour+":"+sMinis+":"+sSecond);
     }
 
 
