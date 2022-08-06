@@ -7,6 +7,8 @@ public class weiruan2 {
         System.out.println(sount("WRRWWR"));
         System.out.println(sount("WWRWWWRWR"));
         System.out.println(sount("WWW"));
+        System.out.println(sount("RW"));
+
 
     }
 
@@ -24,13 +26,16 @@ public class weiruan2 {
             return 0;
         }
 
-        for (int i = 0; i < size; i++) {
+        outer:for (int i = 0; i < size; i++) {
             int tem_ans = 0;
             int tem_mid = reds.get(i);
             // 前半部分
             int tem = tem_mid-1;
             for (int j = 0; j < i; j++) {
                 tem_ans += (tem-reds.get(j));
+                if(tem_ans > 1000000000){
+                    continue outer;
+                }
                 tem--;
             }
 
@@ -39,12 +44,19 @@ public class weiruan2 {
             tem = tem_mid+1;
             for (int j = i+1; j < size; j++) {
                 tem_ans += (reds.get(j)-tem);
+                if(tem_ans > 1000000000){
+                    continue outer;
+                }
                 tem++;
             }
 
             ans = Math.min(ans,tem_ans);
-
         }
+
+        if(ans==Integer.MAX_VALUE){
+            return -1;
+        }
+
         return ans;
 
     }
