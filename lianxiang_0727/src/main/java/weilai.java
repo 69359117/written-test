@@ -36,10 +36,6 @@ public class weilai {
 
         }
 
-        if(min == 0){
-            return 0;
-        }
-
         for (int k = i; k <= j; k++) {
             nums[k] -= min;
         }
@@ -47,6 +43,5 @@ public class weilai {
 
         return min + count(nums,i,min_index-1) + count(nums,min_index+1,j);
     }
-
 
 }
