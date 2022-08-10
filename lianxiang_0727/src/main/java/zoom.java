@@ -31,11 +31,13 @@ public class zoom {
                 register(all,hashSets,name,count,focus);
             }else {
                 String name = scanner.next();
-                if(!names.containsKey(name)){
+                if(names==null || !names.containsKey(name)){
                     System.out.println("error");
+                }else {
+                    int result = find(names.get(name),hashSets);
+                    System.out.println(result);
                 }
-                int result = find(names.get(name),hashSets);
-                System.out.println(result);
+
             }
 
         }
