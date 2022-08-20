@@ -22,11 +22,12 @@ public class zoom {
                 names.put(name,person);
                 int count = Integer.parseInt(scanner.next());
                 String[] focus = new String[count];
-                for (String s : focus) {
-                    person.add(s);
-                }
                 for (int j = 0; j < focus.length; j++) {
                     focus[j] = scanner.next();
+                }
+                for (String s : focus) {
+                    all.add(s);
+                    person.add(s);
                 }
                 register(all,hashSets,name,count,focus);
             }else {
@@ -54,6 +55,7 @@ public class zoom {
             if(!all.contains(s)){
                 continue;
             }
+            ArrayList<HashSet> removes = new ArrayList<HashSet>();
             for (HashSet hashSet : hashSets) {
                 if(!hashSet.contains(s)){
                     continue;
@@ -63,7 +65,11 @@ public class zoom {
                 }else {
                     tem.addAll(hashSet);
                 }
-                hashSets.remove(hashSet);
+                removes.add(hashSet);
+//                hashSets.remove(hashSet);
+            }
+            for (HashSet remove : removes) {
+                hashSets.remove(remove);
             }
 
         }

@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class test1 {
     public static void main(String[] args) {
+
+        String a = "123";
+        System.out.println(a.toString());
+
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
         int[] nums = new int[N];            // 长度
