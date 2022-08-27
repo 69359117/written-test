@@ -11,6 +11,7 @@ public class dajiang {
         int N = s.length();
         if(N<3){
             System.out.println(0);
+            return;
         }
 
         if(N%2==1){         // 奇数，不能浪费
