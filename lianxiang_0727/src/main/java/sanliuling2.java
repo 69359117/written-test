@@ -17,27 +17,57 @@ public class sanliuling2 {
             nodes[i] = new Node(path[0][i], path[1][i], path[2][i]);
         }
         int l = nodes.length;
-        int[][] ints = new int[l+1][l+1];
+        int[][] ints = new int[l][l];
         for (int i = 0; i < nodes.length; i++) {
             int x = nodes[i].a;
-            ints[nodes[i].a][nodes[i].b] = nodes[i].weight;
-            ints[nodes[i].b][nodes[i].a] = nodes[i].weight;
+            ints[nodes[i].a-1][nodes[i].b-1] = nodes[i].weight;
+            ints[nodes[i].b-1][nodes[i].a-1] = nodes[i].weight;
         }
         System.out.println(solution(ints));
 
-        System.out.println(1);
+//        System.out.println(1);
 
     }
 
     public static int solution(int[][] Matrix) {
-        int ans = 0;
+        int sum = 0;
         int num = Matrix.length-1;
-        int index = 1;
+        int index = 0;
+        int[] has = new int[num];
+        int[] weights = new int[num];
 
 
 
+        for (int i = 0; i < num; i++) {
+            weights[i] = Matrix[index][i];
+        }
+        weights[index] = 0;
+        int tem = 0;
+        for (int i = 0 ; i<num ; i++){
 
-        return 0;
+            int min = Integer.MAX_VALUE;
+            for (int j = 0 ; j <num ; j++){
+                if(weights[j]!=0 && weights[j]<min){
+                    min = weights[j];
+                    tem = j;
+                }
+            }
+
+            sum+=weights[tem];
+
+            weights[tem] = 0;
+
+            for (int kk = 0; kk < num; kk++) {
+                if(weights[kk]!=0 && Matrix[tem][kk]<weights[kk]){
+                    weights[kk] = Matrix[tem][kk];
+                }
+            }
+
+        }
+
+
+
+        return sum;
     }
 
     static class Node{
