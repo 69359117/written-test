@@ -3,10 +3,7 @@ package tjhmeituan;
 import java.util.HashSet;
 import java.util.Scanner;
 
-/**
- * @author Tdd
- * @creat 2022-09-03 10:21
- */
+
 /*
 4
 5 0 3 1

@@ -2,6 +2,9 @@
 import java.io.*;
 import java.util.*;
 
+//4
+//5 0 3 1
+
 //    public class Main{
 public class MeiTuan2 {
     public static void main(String args[]) {
@@ -12,28 +15,29 @@ public class MeiTuan2 {
         for (int i = 0; i < n; i++) {
             ints[i] = cin.nextInt();
         }
-        int[] solution = solution(ints);
-
-
-
+        solution(ints);
     }
 
-    public static int[] solution(int[] ints){
-        int[] res = new int[2];
-        int min1 = Integer.MIN_VALUE, min2 = Integer.MIN_VALUE;
+    public static void solution(int[] ints){
+
+        boolean[] has = new boolean[ints.length+2];
+        int min1 = Integer.MIN_VALUE;
         for (int i : ints) {
-            if(i<min1){
-                min2 = min1;
+            has[i] = true;
+        }
+        for (int i = 0; i < has.length; i++) {
+            if(!has[i]){
                 min1 = i;
-            }else if(i<min2){
-                min2 = i;
-            }else {
-
+                break;
             }
-
-
         }
 
-        return res;
+        for (int tem : ints) {
+            if(tem <= min1){
+                System.out.println(tem);
+            }else {
+                System.out.println(min1);
+            }
+        }
     }
 }
