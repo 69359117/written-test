@@ -19,18 +19,18 @@ public class t2 {
         HashSet<Integer> set = new HashSet<>();
         for (int i = 0; i < n; i++){
             num[i] = sc.nextInt();
-            set.add(num[i]);
+            set.add(num[i]);//把输入每一个数放入set里面
         }
         int[] res = new int[n];
         for (int i = 0; i < n; i++) {
-            set.remove(num[i]);
-            for(int j = 0; j <= 1000000000; j++){
+            set.remove(num[i]);//删除当前数
+            for(int j = 0; j <= 1000000000; j++){//从0开始遍历，看看缺了哪个
                 if(!set.contains(j)){
                     res[i] = j;
                     break;
                 }
             }
-            set.add(num[i]);
+            set.add(num[i]);//加回来当前数
         }
         for(int k : res) System.out.print(k+ " ");
 
