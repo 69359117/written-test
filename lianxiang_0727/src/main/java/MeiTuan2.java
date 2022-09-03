@@ -22,10 +22,10 @@ public class MeiTuan2 {
 
         boolean[] has = new boolean[ints.length+2];
         int min1 = Integer.MIN_VALUE;
-        for (int i : ints) {
+        for (int i : ints) {            // 记录出现过的数
             has[i] = true;
         }
-        for (int i = 0; i < has.length; i++) {
+        for (int i = 0; i < has.length; i++) {      // 遍历，找没有出现过的最小值min1
             if(!has[i]){
                 min1 = i;
                 break;
@@ -33,10 +33,10 @@ public class MeiTuan2 {
         }
 
         for (int tem : ints) {
-            if(tem <= min1){
+            if(tem <= min1){                // 删掉的比 min1 小、输出删除的数
                 System.out.println(tem);
             }else {
-                System.out.println(min1);
+                System.out.println(min1);   // 删掉的比 min1 小、输出min1
             }
         }
     }
