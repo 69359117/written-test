@@ -1,62 +1,65 @@
+package lianxiang_0727.src.main.java;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
 
-//    public class Main{
 
 
+//3 5 1
+//2 1 2 3 2
+//9 6 2 1 7
+//1 3 0 5 2
 public class MeiTuan4 {
     public static void main(String[] args) {
-        Scanner cin = new Scanner(System.in);
-        int n = cin.nextInt();
-        int[][] dp = new int[n][2];
-        boolean[][] isHas = new boolean[n][26];
-
-        for (int i = 1; i < n; i++) {
-            int num = cin.nextInt() - 1;
-            dp[i][0] = num;
-            dp[num][1]++;
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int city = sc.nextInt();
+        int[] pos=new int[m];
+        int[] A=new int[m];
+        int[] B=new int[m];
+        for (int i = 0; i < m; i++) {
+            pos[i]=sc.nextInt();
         }
-
-        String next = cin.next();
-        for (int i = 0; i < n; i++) {
-            isHas[i][next.charAt(i) - 'A'] = true;
+        for (int i = 0; i < m; i++) {
+            A[i]=sc.nextInt();
         }
-
-        Queue<Integer> queue = new ArrayDeque<>();
-        for (int i = 0; i < n; i++) {
-            if (dp[i][1] == 0){
-                queue.add(i);
+        for (int i = 0; i < m; i++) {
+            B[i]=sc.nextInt();
+        }
+        int[][] dp=new int[m][4];
+        // change
+        dp[0][0]=pos[0];
+        dp[0][1]=(city==pos[0]?A[0]:B[0]);
+        // stay
+        dp[0][2]=city;
+        dp[0][3]=(city==pos[0]?A[0]:0);
+        for (int i = 1; i < m; i++) {
+            int a,b;
+            if (pos[i]==dp[i-1][0]){
+                a=dp[i-1][1]+A[i];
+            }else {
+                a=dp[i-1][1]+B[i];
             }
-        }
 
-        while (!queue.isEmpty()) {
-            int poll = queue.poll(), num = dp[poll][0];
-            dp[num][1]--;
-
-            add(isHas[num], isHas[poll]);
-            if (num != 0 && dp[num][1] == 0){
-                queue.add(num);
+            if (pos[i]==dp[i-1][2]){
+                b=dp[i-1][3]+A[i];
+            }else {
+                b=dp[i-1][3]+B[i];
             }
-        }
+            dp[i][1]=Math.max(a,b);
+            dp[i][0]=pos[i];
 
-        for (int i = 0; i < n; i++) {
-            int count = 0;
-            for (int j = 0; j < 26; j++) {
-                if (isHas[i][j]){
-                    count++;
-                }
+            if (dp[i-1][1]>dp[i-1][3]){
+                dp[i][2]=dp[i-1][0];
+            }else {
+                dp[i][2]=dp[i-1][2];
             }
-            System.out.print(count + " ");
+            dp[i][3]=Math.max(dp[i-1][1],dp[i-1][3])+B[i];
         }
+        System.out.println(Math.max(dp[m-1][1],dp[m-1][3]));
     }
 
-    private static void add(boolean[] arr1, boolean[] arr2) {
-        for (int i = 0; i < 26; i++) {
-            if (arr2[i]){
-                arr1[i] = true;
-            }
-        }
-    }
 }
+
