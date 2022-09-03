@@ -17,18 +17,18 @@ public class MeiTuan4 {
         int m = sc.nextInt();
         int city = sc.nextInt();
         int[] pos=new int[m];
-        int[] A=new int[m];
-        int[] B=new int[m];
+        long[] A=new long[m];
+        long[] B=new long[m];
         for (int i = 0; i < m; i++) {
             pos[i]=sc.nextInt();
         }
         for (int i = 0; i < m; i++) {
-            A[i]=sc.nextInt();
+            A[i]=sc.nextLong();
         }
         for (int i = 0; i < m; i++) {
-            B[i]=sc.nextInt();
+            B[i]=sc.nextLong();
         }
-        int[][] dp=new int[m][4];
+        long[][] dp=new long[m][4];
         // change
         dp[0][0]=pos[0];
         dp[0][1]=(city==pos[0]?A[0]:B[0]);
@@ -36,7 +36,7 @@ public class MeiTuan4 {
         dp[0][2]=city;
         dp[0][3]=(city==pos[0]?A[0]:0);
         for (int i = 1; i < m; i++) {
-            int a,b;
+            long a,b;
             if (pos[i]==dp[i-1][0]){
                 a=dp[i-1][1]+A[i];
             }else {

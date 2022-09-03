@@ -6,6 +6,13 @@ import java.util.Scanner;
  * @author Tdd
  * @creat 2022-09-03 11:29
  */
+/*
+3
+2 7 2
+1 5 3
+4 6 3
+输出4
+ */
 public class t5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
