@@ -19,16 +19,15 @@ public class t1 {
         int minValue = Integer.MAX_VALUE;//最初的最小值
         int minIndex = -1;
         int count = Integer.MIN_VALUE;//最初的相等个数
-        for (int i = 0; i < n; i++){
+        HashMap<Integer, Integer> map = new HashMap<>();//key是值，val是次数
+
+        for (int i = 0; i < n; i++){//最大值，最小值，最小值下标，值对应的最多的相等次数
             nums[i] = sc.nextInt();
             maxValue = Math.max(maxValue, nums[i]);
             if(nums[i] < minValue){
                 minValue = nums[i];
                 minIndex = i;
             }
-        }
-        HashMap<Integer, Integer> map = new HashMap<>();//key是值，val是次数
-        for (int i = 0; i < n; i++) {
             map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
             count = Math.max(count, map.get(nums[i]));
         }
@@ -39,9 +38,9 @@ public class t1 {
 
         while(minValue < maxValue){
             map.put(minValue, map.get(minValue) - 1);
-            nums[minIndex] += k;
+            nums[minIndex] += k;//最小的+k
             map.put(nums[minIndex], map.getOrDefault(nums[minIndex], 0) + 1);
-            count = Math.max(count, Math.max(map.get(minValue), nums[minIndex]));
+            count = Math.max(count, Math.max(map.get(minValue), nums[minIndex]));//更新count
             //更新minIndex 和 minvalue
             minValue = Integer.MAX_VALUE;
             for (int i = 0; i < n; i++) {
