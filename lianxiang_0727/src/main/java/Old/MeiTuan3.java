@@ -1,9 +1,10 @@
+package Old;
 
 import java.io.*;
 import java.util.*;
 
 //    public class Main{
-public class MeiTuan {
+public class MeiTuan3 {
     public static void main(String args[]) {
         Scanner cin = new Scanner(System.in);
         int a, b;

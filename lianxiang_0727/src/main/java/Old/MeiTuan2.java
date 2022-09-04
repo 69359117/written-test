@@ -1,3 +1,4 @@
+package Old;
 
 import java.io.*;
 import java.util.*;
@@ -23,6 +24,9 @@ public class MeiTuan2 {
         boolean[] has = new boolean[ints.length+2];
         int min1 = Integer.MIN_VALUE;
         for (int i : ints) {            // 记录出现过的数
+            if(i>=has.length){
+                continue;
+            }
             has[i] = true;
         }
         for (int i = 0; i < has.length; i++) {      // 遍历，找没有出现过的最小值min1
@@ -31,7 +35,6 @@ public class MeiTuan2 {
                 break;
             }
         }
-
         for (int tem : ints) {
             if(tem <= min1){                // 删掉的比 min1 小、输出删除的数
                 System.out.println(tem);
