@@ -18,6 +18,8 @@ import java.util.Scanner;
 0 0 0 0 0 0
 4
 -1 2 -3 4
+
+任意数都要满足三数之和
  */
 public class t2 {
     public static void main(String[] args) {
@@ -36,7 +38,6 @@ public class t2 {
         HashSet<Integer> set = new HashSet<>();
         for(int num : nums) set.add(num);
         for(int i = 0; i < nums.length - 2; i++){
-//            if(set.contains(nums[i] + nums[i+1] + nums[i+2])) return true;
             if(i > 0 && nums[i] == nums[i-1]) continue;//剪枝1：当前数字i  作为重复的数字跳过
             for (int j = i + 1; j < nums.length - 1; j++) {
                 if(j > 0 && nums[j] == nums[j-1]) continue;
