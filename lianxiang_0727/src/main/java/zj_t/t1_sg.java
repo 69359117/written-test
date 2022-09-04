@@ -46,7 +46,7 @@ public class t1_sg {
         if(n >= N) return 0;
         if(m < 0 || m >= M) return 0;
         int point = n * M + m;
-        if(map.containsValue(point)) return map.get(point);//point对应的分数
+        if(map.containsKey(point)) return map.get(point);
 
         int ans = 0;
         if(score[n][m] == -1){
