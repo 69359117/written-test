@@ -1,6 +1,8 @@
 package lianxiang_0727.src.main.java.wytjh;
 
+import java.net.Inet4Address;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -14,31 +16,39 @@ public class t1 {
         int k = sc.nextInt();
         int[] nums = new int[n];
         int maxValue = Integer.MIN_VALUE;//最初的最大值
+        int minValue = Integer.MAX_VALUE;//最初的最小值
+        int minIndex = -1;
         int count = Integer.MIN_VALUE;//最初的相等个数
         for (int i = 0; i < n; i++){
             nums[i] = sc.nextInt();
             maxValue = Math.max(maxValue, nums[i]);
+            if(nums[i] < minValue){
+                minValue = nums[i];
+                minIndex = i;
+            }
         }
-        Arrays.sort(nums);
-        int temp = 1;
-        for (int i = 0; i < n - 1; i++) {
-            if(nums[i] == nums[i+1]) temp++;
-            else temp = 1;
-            count = Math.max(count, temp);
+        HashMap<Integer, Integer> map = new HashMap<>();//key是值，val是次数
+        for (int i = 0; i < n; i++) {
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+            count = Math.max(count, map.get(nums[i]));
         }
         if(count == n){
             System.out.println(n);
             return;
         }
 
-        while(nums[0] < maxValue){
-            nums[0] += k;
-            Arrays.sort(nums);
-            temp = 1;
-            for (int i = 0; i < n - 1; i++) {
-                if(nums[i] == nums[i+1]) temp++;
-                else temp = 1;
-                count = Math.max(count, temp);
+        while(minValue < maxValue){
+            map.put(minValue, map.get(minValue) - 1);
+            nums[minIndex] += k;
+            map.put(nums[minIndex], map.getOrDefault(nums[minIndex], 0) + 1);
+            count = Math.max(count, Math.max(map.get(minValue), nums[minIndex]));
+            //更新minIndex 和 minvalue
+            minValue = Integer.MAX_VALUE;
+            for (int i = 0; i < n; i++) {
+                if(nums[i] < minValue){
+                    nums[i] = minValue;
+                    minIndex = i;
+                }
             }
         }
         System.out.println(count);
