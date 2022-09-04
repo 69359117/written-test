@@ -28,7 +28,8 @@ public class t3 {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();//组数
         while (t > 0) {
-            int n = sc.nextInt();
+            int n = sc.nextInt();//长度
+            int k = sc.nextInt();//最大修复次数
         }
     }
 }

@@ -19,7 +19,7 @@ import java.util.Scanner;
 4
 -1 2 -3 4
 
-任意数都要满足三数之和
+是任意数都要满足三数之和为set内的元素，而不是存在
  */
 public class t2 {
     public static void main(String[] args) {
