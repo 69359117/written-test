@@ -10,7 +10,7 @@ public class t0 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        if(input.length() <= 1){
+        if(input.length() <= 1 || input.charAt(0) != '1'){
             System.out.println(-1);
             return;
         }
