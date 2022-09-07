@@ -1,6 +1,7 @@
 package lianxiang_0727.src.main.java.sf_t;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 /**
@@ -23,18 +24,30 @@ public class t1 {
         int n = sc.nextInt();//n种类型
         int m = sc.nextInt();//要求m道不同类型的题
         int[] nums = new int[n];
-        for (int i = 0; i < n; i++) nums[i] = sc.nextInt();
+        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> (o2 - o1));
+        for (int i = 0; i < n; i++){
+            nums[i] = sc.nextInt();
+            queue.add(nums[i]);
+        }
 
         int count = 0;
-        Arrays.sort(nums);
-        while(nums[n-m] > 0){
-            for (int i = 1; i <= m; i++) {
-                nums[n-i]--;
+
+        while(true){
+            int[] temp = new int[m];
+            boolean flag = false;
+            for (int i = 0; i < m; i++) {
+                temp[i] = queue.poll() - 1;
+                if(i == m - 1 && temp[i] < 0){
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag) break;
+            for (int i = 0; i < m; i++) {
+                queue.add(temp[i]);
             }
             count++;
-            Arrays.sort(nums);
         }
         System.out.println(count);
-
     }
 }
