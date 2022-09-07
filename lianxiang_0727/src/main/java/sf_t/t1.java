@@ -8,6 +8,9 @@ import java.util.Scanner;
  * @creat 2022-09-07 18:59
  */
 /*
+5 3
+1 2 3 4 5
+
 5 4
 1 2 3 4 5
 
