@@ -13,8 +13,7 @@ public class tengxunyinyue3 {
         node1.left = node2;
         node1.right = node3;
 
-        dfs(node1);
-        System.out.println(sum+1);
+        System.out.println(dfs(node1));
 
     }
 
