@@ -3,31 +3,33 @@ import java.util.Scanner;
 
 public class tengxunyinyue3 {
 
-    public static long sum = 0;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         TreeNode node1 = new TreeNode(0);
         TreeNode node2 = new TreeNode(0);
         TreeNode node3 = new TreeNode(0);
+        TreeNode node4 = new TreeNode(0);
+        TreeNode node5 = new TreeNode(0);
         node1.left = node2;
         node1.right = node3;
+        node3.left = node4;
+        node3.right = node5;
 
-        System.out.println(dfs(node1));
+        System.out.println(getTreeSum(node1));
 
     }
 
 
-    public static long dfs(TreeNode node){
-        if(node.left == null){
+    public static int getTreeSum(TreeNode tree){
+        if(tree.left == null){
             return 1;
         }
-        long left = dfs(node.left);
-        long right = dfs(node.left);
+        int left = getTreeSum(tree.left);
+        int right = getTreeSum(tree.right);
 
-        long tem = Math.max(left,right);
-        sum += tem*2;
-        return tem*2+1 ;
+        int tem = Math.max(left,right);
+        return (tem*2) % 1000000007+1 ;
     }
 
 
