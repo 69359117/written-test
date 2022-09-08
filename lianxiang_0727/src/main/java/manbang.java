@@ -1,6 +1,7 @@
-import java.util.*;
 
-public class Wangyi {
+import java.util.Scanner;
+
+public class manbang {
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);

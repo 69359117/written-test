@@ -1,13 +1,7 @@
-package lianxiang_0727.src.main.java.zj_t;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
-/**
- * @author Tdd
- * @creat 2022-09-04 19:18
- */
+
 /*
 4
 3
@@ -38,7 +32,7 @@ public class t2 {
         HashSet<Integer> set = new HashSet<>();
         for(int num : nums) set.add(num);
         for(int i = 0; i < nums.length - 2; i++){
-            if(i > 0 && nums[i] == nums[i-1]) continue;//剪枝1：当前数字i  作为重复的数字跳过
+            if(i > 0 && nums[i] == nums[i-1]) continue;     //剪枝1：当前数字i  作为重复的数字跳过
             for (int j = i + 1; j < nums.length - 1; j++) {
                 if(j > 0 && nums[j] == nums[j-1]) continue;
                 for (int k = j + 1; k < nums.length; k++) {

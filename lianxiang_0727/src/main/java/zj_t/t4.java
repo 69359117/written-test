@@ -1,4 +1,3 @@
-package lianxiang_0727.src.main.java.zj_t;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +32,8 @@ public class t4 {
                 boolean flag = true;
                 for (int k = 1; k < arr.length; k++) {
                     int last = arr[k];
-                    if ((last > 0 && temp[j][last - 1]) || (last < 0 && !temp[j][-last - 1])) continue;
+                    if ( (last > 0 && temp[j][last - 1]) || (last < 0 && !temp[j][-last - 1]) )
+                        continue;
                     else {
                         flag = false;
                         break;

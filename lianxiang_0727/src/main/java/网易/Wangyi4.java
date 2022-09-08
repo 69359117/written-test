@@ -1,4 +1,23 @@
+package 网易;
+
 import java.util.*;
+//
+//3
+//1 2 3
+//1 2
+//1 3
+
+//4
+//1 2 3 4
+//1 2
+//1 3
+//2 4
+
+//4
+//2 3 4 5
+//1 2
+//1 3
+//2 4
 
 public class Wangyi4 {
 
@@ -7,12 +26,12 @@ public class Wangyi4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] ints = new int[n];
+        int[] power = new int[n];
         HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            ints[i] = sc.nextInt();
+            power[i] = sc.nextInt();
             ArrayList<Integer> list = new ArrayList<Integer>();
-            map.put(ints[i], list);
+            map.put(i+1, list);
         }
         for (int i = 0; i < n - 1; i++) {
             int a = sc.nextInt();
@@ -24,57 +43,56 @@ public class Wangyi4 {
             map.get(a).add(b);
             map.get(b).add(a);
         }
-        solution(map);
+        solution(map,power);
 
     }
 
 
-    public static void solution(HashMap<Integer, ArrayList<Integer>> map) {
+    public static void solution(HashMap<Integer, ArrayList<Integer>> map,int[] power ) {
         int N = 1000000000 + 7;
         long ans = 0;
         long tem = 1;
 
         for (int now : map.get(1)) {
-            // 返回数组：子树乘积、
-            long dfs = dfs(1, now, ans, map);
+            // 返回：子树权值乘积
+            long dfs = dfs(1, now, map,power);
             anss = (anss + find(dfs)) % N;
             tem = (tem * dfs) ;
         }
+        tem *= power[0];
         anss = (anss + find(tem)) % N;
         System.out.println(anss);
     }
 
     // 返回子树乘积
-    public static long dfs(int from, int now, long ans, HashMap<Integer, ArrayList<Integer>> map) {
+    public static long dfs(int from, int now, HashMap<Integer, ArrayList<Integer>> map,int[] power) {
         int N = 1000000000 + 7;
         long tem = 1;
         if (map.get(now).size() == 1) {
-            return now;
+            return power[now-1];
         }
         for (int i : map.get(now)) {
             if (i == from) {
                 continue;
             }
-            long dfs = dfs(now, i, ans, map);
+            long dfs = dfs(now, i, map,power);
             anss = (anss + find(dfs)) % N;
             tem = (tem * dfs) ;
-//            ans = (ans + find(dfs)) % N;
-//            tem = (tem * dfs);
         }
-//        long[] longs = new long[2];
-//        longs[0] = tem * now;
-//        longs[1] = ans;
-        return tem * now;
+        return tem * power[now-1];
     }
 
 
     public static long find(long num) {
         long ans = 0;
         int N = 1000000000+7;
-        for (long i = 1; i <=num; i++) {
+        for (long i = 1; i <=num/2; i++) {
             if (num % i == 0) {
-                ans = (ans + 1) % N;
+                ans++;
             }
+        }
+        if(num!=1){
+            ans++;
         }
         return ans;
     }
