@@ -1,7 +1,6 @@
-import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class tengxunyinyue3 {
+public class tengxunyinyue3_ {
 
 
     public static void main(String[] args) {
@@ -26,26 +25,20 @@ public class tengxunyinyue3 {
 
 
     public static int getTreeSum(TreeNode tree){
+        long dfs = dfs(tree);
+        return (int)( (dfs) % 1000000007 ) ;
+    }
+
+    public static long dfs(TreeNode tree){
         if(tree.left == null){
             return 1;
         }
-        int left = getTreeSum(tree.left);
-        int right = getTreeSum(tree.right);
+        long left = dfs(tree.left);
+        long right = dfs(tree.right);
 
-        int tem = Math.max(left,right);
-        return (tem*2) % 1000000007+1 ;
+        long tem = Math.max(left,right);
+        return (tem*2) +1 ;
     }
-
-//    public static long dfs(TreeNode tree){
-//        if(tree.left == null){
-//            return 1;
-//        }
-//        long left = dfs(tree.left);
-//        long right = dfs(tree.right);
-//
-//        long tem = Math.max(left,right);
-//        return (tem*2) % 1000000007+1 ;
-//    }
 
 
 
