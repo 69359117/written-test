@@ -1,14 +1,34 @@
-package lianxiang_0727.src.main.java.yongyou_t;
+package yongyou_t;
 
-/**
- * @author Tdd
- * @creat 2022-09-09 19:03
- */
-public class t2 {
-}
+import java.util.*;
+
 
 class Solution {
-    public int maxAreaOfIsland(int[][] grid) {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> strings = new ArrayList<>();
+        String s ;
+        while ( !( s = sc.nextLine() ).equals("") ){
+            strings.add(s);
+        }
+        for (String string : strings) {
+            System.out.println(string.toString());
+        }
+        int m = strings.size();
+        int n = strings.get(0).length()/2 +1;
+        int[][] ints = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            String s1 = strings.get(i);
+            String[] split = s1.split(",");
+            for (int i1 = 0; i1 < split.length; i1++) {
+                ints[i][i1] = Integer.valueOf(split[i1]);
+            }
+        }
+        System.out.println(maxAreaOfIsland(ints));
+    }
+
+    public static int maxAreaOfIsland(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
         int max = 0;
@@ -23,7 +43,7 @@ class Solution {
         return max;
     }
 
-    public int dfs(int[][] grid, int i, int j){
+    public static int dfs(int[][] grid, int i, int j){
         int m = grid.length;
         int n = grid[0].length;
         if(i < 0 || i >= m || j < 0 || j >= n) return 0;

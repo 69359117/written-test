@@ -40,10 +40,6 @@ public class tengxunyinyue3_ {
         return (tem*2) +1 ;
     }
 
-
-
-
-
     public static class TreeNode{
         int val = 0;
 
