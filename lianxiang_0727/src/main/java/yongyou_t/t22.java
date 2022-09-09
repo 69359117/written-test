@@ -5,7 +5,7 @@ import java.util.*;
 //0,0,0,0,0,0,0,0
 //
 
-class Solution {
+class t22 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
