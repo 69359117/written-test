@@ -5,26 +5,18 @@ import java.util.*;
 //0,0,0,0,0,0,0,0
 //
 
-class Solution {
+class t22{
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         ArrayList<String> strings = new ArrayList<>();
         String s ;
-        while (true){
+        while (sc.hasNextLine()){
             s = sc.nextLine();
-            if(s.equals("")){
-                break;
-            }else {
-                strings.add(s);
-            }
+            strings.add(s);
         }
-////        while ( !( s = sc.nextLine() ).equals("") ){
-////            strings.add(s);
-////        }
-//        for (String string : strings) {
-//            System.out.println(string.toString());
-//        }
+
         int m = strings.size();
         int n = strings.get(0).length()/2 +1;
         int[][] ints = new int[m][n];
