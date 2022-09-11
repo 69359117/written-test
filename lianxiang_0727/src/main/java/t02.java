@@ -1,39 +1,36 @@
-package lianxiang_0727.src.main.java;
+import java.util.LinkedList;
 
-/**
- * @author Tdd
- * @creat 2022-09-12 0:28
- */
-public class t02 {
-}
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
 class Solution {
-    TreeNode head = new TreeNode(-1);   // 为了返回单向链表的头节点而多设的一个节点
-    TreeNode perv = null;               // 指向当前节点的前一个节点
-    public TreeNode convertBiNode(TreeNode root) {
-        helper(root);
-        return head.right;
-    }
-
-    public void helper(TreeNode root) {
-        if (root == null) { return;}
-        helper(root.left);
-        if (perv == null) {     // 第一个节点
-            perv = root;        // 记录第一个节点
-            head.right = root;  // 记录它，它将作为单链表的表头
-        } else {                // 第一个节点之后的节点
-            perv.right = root;  // 前一个节点的右指针指向当前节点
-            perv = root;        // 更新perv指向
+    public ListNode convertBiNode(TreeNode root) {
+        TreeNode head = new TreeNode(0);// 单链表的头指针哨兵
+        TreeNode prev = head;// 移动的链表前置指针
+        // 开始中序遍历
+        TreeNode node = root;
+        Deque<TreeNode> stack = new LinkedList<>();
+        while (node != null || !stack.isEmpty()){
+            if (node != null){
+                stack.push(node);
+                node = node.left;
+            }else {
+                node = stack.pop();
+                // ---链表处理
+                node.left = null;// 当前节点左指针置空
+                prev.right = node;// 前置指针右指针指向当前节点，作为链表的next指针，链表新增元素
+                prev = node;// 指针后移
+                // ---链表处理
+                // 中序遍历进入右子树
+                node = node.right;
+            }
         }
-        root.left = null;       // 当前节点的左指针设为null
-        helper(root.right);
+        head = head.right;
+        ListNode now = new ListNode(-1);
+        ListNode cur = now;
+        while(head != null){
+            cur.next = head.val;
+            cur = cur.next;
+            head = head.right;
+        }
+        return now.next;
     }
 }
+
