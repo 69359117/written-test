@@ -64,7 +64,10 @@ public class t2 {
                 ints[i+1]-=2*a1;
                 ints[i+2]-=3*a1;
             }
-            sum += ints[i];
+            if(ints[i]>0){
+                sum += ints[i];
+            }
+
             i++;
         }
         System.out.println(sum);
