@@ -17,6 +17,8 @@ import java.util.Scanner;
 //6
 //4 8 12 1 1 1
 
+//6
+//4 8 13 1 1 1
 
 public class t2 {
 
@@ -56,7 +58,6 @@ public class t2 {
                 ints[i]-=left;
                 ints[i+1]-=2*left;
                 ints[i+2]-=3*left;
-                continue;
             }
             sum += ints[i];
             i++;
