@@ -31,12 +31,7 @@ public class t2 {
                 i++;
                 continue;
             }
-            if(i >= ints.length-2){
-                sum += ints[i];
-                i++;
-                continue;
-            }
-            if(ints[i]>=1 && ints[i+1] >=2 && ints[i+2] >=3){
+            if(i < ints.length-2 && ints[i]>=1 && ints[i+1] >=2 && ints[i+2] >=3){
                 sum+=5;
                 ints[i]-=1;
                 ints[i+1]-=2;
@@ -48,5 +43,4 @@ public class t2 {
         }
         System.out.println(sum);
     }
-
 }
