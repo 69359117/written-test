@@ -11,6 +11,12 @@ import java.util.Scanner;
 //6
 //3 6 9 1 1 1
 
+//6
+//2 4 6 1 1 1
+
+//6
+//4 8 12 1 1 1
+
 
 public class t2 {
 
