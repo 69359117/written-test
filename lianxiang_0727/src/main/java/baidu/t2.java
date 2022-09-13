@@ -43,8 +43,8 @@ public class t2 {
                 continue;
             }
             if(i < ints.length-2 && ints[i]>=1 && ints[i+1] >=2 && ints[i+2] >=3){
-                int left = 2 , right = 1000000000;
-
+                int left = 2 , right = 333333334 ;
+//                1000000000
                 while ( left < right ){
                     int mid = (left+right)/2;
                     if(ints[i]>=mid && ints[i+1] >=2*mid && ints[i+2] >=3*mid){         // 满足
