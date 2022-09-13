@@ -32,10 +32,15 @@ public class t2 {
                 continue;
             }
             if(i < ints.length-2 && ints[i]>=1 && ints[i+1] >=2 && ints[i+2] >=3){
-                sum+=5;
-                ints[i]-=1;
-                ints[i+1]-=2;
-                ints[i+2]-=3;
+                int tem = 2;
+                while (ints[i]>=tem && ints[i+1] >=2*tem && ints[i+2] >=3*tem){
+                    tem++;
+                }
+                tem--;
+                sum+=5*tem;
+                ints[i]-=tem;
+                ints[i+1]-=2*tem;
+                ints[i+2]-=3*tem;
                 continue;
             }
             sum += ints[i];
