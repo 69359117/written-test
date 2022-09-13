@@ -43,21 +43,26 @@ public class t2 {
                 continue;
             }
             if(i < ints.length-2 && ints[i]>=1 && ints[i+1] >=2 && ints[i+2] >=3){
-                int left = 2 , right = 333333334 ;
-//                1000000000
-                while ( left < right ){
-                    int mid = (left+right)/2;
-                    if(ints[i]>=mid && ints[i+1] >=2*mid && ints[i+2] >=3*mid){         // 满足
-                        left = mid+1;
-                    }else {
-                        right = mid;
-                    }
-                }
-                left--;
-                sum+=5*left;
-                ints[i]-=left;
-                ints[i+1]-=2*left;
-                ints[i+2]-=3*left;
+//                int left = 2 , right = 333333334 ;
+////                1000000000
+//                while ( left < right ){
+//                    int mid = (left+right)/2;
+//                    if(ints[i]>=mid && ints[i+1] >=2*mid && ints[i+2] >=3*mid){         // 满足
+//                        left = mid+1;
+//                    }else {
+//                        right = mid;
+//                    }
+//                }
+//                left--;
+
+                int a1 = ints[i];
+                a1 = Math.min(a1,ints[i+1]/2);
+                a1 = Math.min(a1,ints[i+2]/3);
+
+                sum+=5*a1;
+                ints[i]-=a1;
+                ints[i+1]-=2*a1;
+                ints[i+2]-=3*a1;
             }
             sum += ints[i];
             i++;
