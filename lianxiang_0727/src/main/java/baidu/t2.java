@@ -8,6 +8,9 @@ import java.util.Scanner;
 //6
 //1 1 2 3 2 3
 
+//6
+//3 6 9 1 1 1
+
 
 public class t2 {
 
@@ -32,15 +35,26 @@ public class t2 {
                 continue;
             }
             if(i < ints.length-2 && ints[i]>=1 && ints[i+1] >=2 && ints[i+2] >=3){
-                int tem = 2;
-                while (ints[i]>=tem && ints[i+1] >=2*tem && ints[i+2] >=3*tem){
-                    tem++;
+                int left = 2 , right = 1000000000;
+
+                while ( left < right ){
+                    int mid = (left+right)/2;
+                    if(ints[i]>=mid && ints[i+1] >=2*mid && ints[i+2] >=3*mid){         // 满足
+                        left = mid+1;
+                    }else {
+                        right = mid;
+                    }
                 }
-                tem--;
-                sum+=5*tem;
-                ints[i]-=tem;
-                ints[i+1]-=2*tem;
-                ints[i+2]-=3*tem;
+                left--;
+
+//                while (ints[i]>=tem && ints[i+1] >=2*tem && ints[i+2] >=3*tem){
+//                    tem++;
+//                }
+//                tem--;
+                sum+=5*left;
+                ints[i]-=left;
+                ints[i+1]-=2*left;
+                ints[i+2]-=3*left;
                 continue;
             }
             sum += ints[i];
