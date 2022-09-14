@@ -1,18 +1,19 @@
-package lianxiang_0727.src.main.java.huawei_t;
+//package lianxiang_0727.src.main.java.huawei_t;
+//
+///**
+// * @author Tdd
+// * @creat 2022-09-14 20:33
+// */
+//public class t2_ky {
+//}
 
-/**
- * @author Tdd
- * @creat 2022-09-14 20:33
- */
-public class t2_ky {
-}
 int main(){
     cin>>m>>n;
     vector<int> chan(n);
     for(int i = 0; i < n; i++){
         cin >> chan[i];
     }
-    sort(chan.begin, chan.end, greater<int>());
+    sort(chan.begin(), chan.end(), greater<int>());
 
     vector<pair<int, int>> pkg(m);
     for(int i = 0; i < m; i++){
@@ -21,7 +22,7 @@ int main(){
     for(int i = 0; i < m; i++){
         cin >> pkg[i].second;
     }
-    sort(pkg.begin, pkg.end, greater<pair<int, int>>());
+    sort(pkg.begin(), pkg.end(), greater<pair<int, int>>());
     int pos = 0;
     priority_queue<int, vector<int>, greater<int>> pq;
     for(int i = 0; i < m; i++){
