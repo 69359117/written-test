@@ -18,39 +18,39 @@ public class t2_sg {
     }
 }
 
-#include<iostream>
-using namespace std;
-
-int m,n,ans = INT_MAX;
-vector<int>v1,v2,v3;
-vector<int>dp;
-void func(int k){
-    if(k == m){
-        int tmp = dp[0];
-        for(int i = 0; i < n; ++i)
-        if(tmp < dp[i]) tmp = dp[i];
-        if (tmp < ans)ans = tmp;
-        return;
-    }
-
-    for(int i = 0; i < n; ++i){
-        if(v1[i] >= v2[k]){
-            dp[i] += v3[k]; func(k+1);
-            dp[i] -= v3[k];
-        }
-    }
-}
-
-int main(){
-    cin>>m>>n;
-    v1.resize(n,0);
-    v2.resize(m,0);
-    v3.resize(m,0);
-    dp.resize(n,0);
-    for(int i = 0; i < n; ++i)cin>>v1[i];
-    for(int i = 0; i < m; ++i)cin>>v2[i];
-    for(int i = 0; i < m; ++i)cin>>v3[i];
-    func(0);
-    cout<<ans;
-    return 0;
-}
+//#include<iostream>
+//using namespace std;
+//
+//int m,n,ans = INT_MAX;
+//vector<int>v1,v2,v3;
+//vector<int>dp;
+//void func(int k){
+//    if(k == m){
+//        int tmp = dp[0];
+//        for(int i = 0; i < n; ++i)
+//        if(tmp < dp[i]) tmp = dp[i];
+//        if (tmp < ans)ans = tmp;
+//        return;
+//    }
+//
+//    for(int i = 0; i < n; ++i){
+//        if(v1[i] >= v2[k]){
+//            dp[i] += v3[k]; func(k+1);
+//            dp[i] -= v3[k];
+//        }
+//    }
+//}
+//
+//int main(){
+//    cin>>m>>n;
+//    v1.resize(n,0);
+//    v2.resize(m,0);
+//    v3.resize(m,0);
+//    dp.resize(n,0);
+//    for(int i = 0; i < n; ++i)cin>>v1[i];
+//    for(int i = 0; i < m; ++i)cin>>v2[i];
+//    for(int i = 0; i < m; ++i)cin>>v3[i];
+//    func(0);
+//    cout<<ans;
+//    return 0;
+//}

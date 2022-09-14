@@ -1,3 +1,5 @@
+package Old;
+
 import java.util.Scanner;
 
 public class tengxunyinyue3_ {

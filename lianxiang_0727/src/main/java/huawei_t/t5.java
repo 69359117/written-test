@@ -1,4 +1,3 @@
-package lianxiang_0727.src.main.java.huawei_t;
 
 /**
  * @author Tdd

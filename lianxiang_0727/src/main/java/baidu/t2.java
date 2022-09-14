@@ -35,7 +35,7 @@ public class t2 {
     }
 
     public static void solution(int[] ints){
-        int sum = 0;
+        long sum = 0;
         int i = 0;
         while (i < ints.length) {
             if(ints[i] == 0){
