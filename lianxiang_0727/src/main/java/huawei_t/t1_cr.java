@@ -58,11 +58,11 @@ public class t1_cr {
                 }
             }
         }
-        int ans=0;
+        int res=0;
         for(int i=0;i<=m;i++){
-            ans+=dp[n][i];
+            res+=dp[n][i];
         }
-        System.out.println(ans);
+        System.out.println(res);
     }
 }
 /*

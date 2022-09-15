@@ -39,7 +39,7 @@ public class shunfeng {
     }
 
     public static int solution(PriorityQueue<Integer> queue , int m){
-        int ans = 0;
+        int res = 0;
         while (queue.size() >= m){
             int[] ints = new int[m];
             for (int i = 0; i < m; i++) {
@@ -50,13 +50,13 @@ public class shunfeng {
                 min = queue.peek() ;
             }
             int tem = Math.max(1,ints[m-1]-min);
-            ans += tem;
+            res += tem;
             for (int i = 0; i < m-1; i++) {
                 if(ints[i]!=tem){
                     queue.add(ints[i]-tem);
                 }
             }
         }
-        return ans;
+        return res;
     }
 }

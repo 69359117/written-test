@@ -1,4 +1,3 @@
-package lianxiang_0727.src.main.java.mayi_t;
 
 import java.util.Scanner;
 
@@ -8,25 +7,24 @@ import java.util.Scanner;
  */
 public class t1 {
     public static void main(String[] args) {
+        int[] nums = new int[26];
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();//a的个数
-        StringBuilder sb = new StringBuilder();
-        int[] num = new int[26];
-        num[0] = n;
+        int input = sc.nextInt();
+        nums[0] = input;
         for (int i = 0; i < 25; i++) {
-            while(num[i] > 1){
-                num[i] -= 2;
-                num[i+1] += 1;
+            while(nums[i] > 1){
+                nums[i+1]++;
+                nums[i] = nums[i] - 2;
             }
         }
 
+        StringBuilder s = new StringBuilder();
         for (int i = 0; i < 26; i++) {
-            while(num[i] > 0){
-                sb.append(Character.toChars(i +'a'));
-                num[i]--;
+            while(nums[i] > 0){
+                s.append(Character.toChars(i +'a'));
+                nums[i]--;
             }
         }
-        System.out.println(sb);
-
+        System.out.println(s);
     }
 }

@@ -33,18 +33,18 @@ public class weiruan4 {
             ints[tem]++;
         }
 
-        int ans = 0;
+        int res = 0;
         for (int anInt : ints) {
-            ans = Math.max(anInt,ans);
+            res = Math.max(anInt,res);
         }
-        return ans;
+        return res;
 
 
 //        if(M==0){
 //            return 0;
 //        }
 //
-//        int ans = 0;
+//        int res = 0;
 //
 //        HashMap<Integer, Integer> map = new HashMap<>();        // 某个值，以及对应子集中的元素数量
 //
@@ -59,13 +59,13 @@ public class weiruan4 {
 //        }
 //
 //        for (int value : map.values()) {                // 遍历所有子集，找出元素数量最多的子集
-//            ans = Math.max(ans,value);
+//            res = Math.max(res,value);
 //        }
 //
-//        return ans;
+//        return res;
     }
 
-//    int ans = 0;
+//    int res = 0;
 //        HashMap<Integer, Integer> map = new HashMap<>();
 //        int min = Integer.MAX_VALUE , max = Integer.MIN_VALUE ;
 //
@@ -113,11 +113,11 @@ public class weiruan4 {
 //                    tem += M;
 //                }
 //            }
-//            if(num > ans){                  // 更新 ans 的 最大值
-//                ans = num ;
+//            if(num > res){                  // 更新 res 的 最大值
+//                res = num ;
 //            }
 //        }
-//        return ans;
+//        return res;
 
 
 }

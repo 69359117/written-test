@@ -10,7 +10,7 @@ public class t1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();//总数
-        int ans = 0;
+        int res = 0;
         int[] a = new int[n];
         int[] b = new int[n];
         int[] c = new int[n];
@@ -28,12 +28,12 @@ public class t1 {
                 for (int k = 0; k < n; k++) {
                     if(b[j] >= c[k])continue;
                     if(b[j]*2 <c[k])break;
-                    ans++;
+                    res++;
                 }
             }
         }
 
 
-        System.out.println(ans);
+        System.out.println(res);
     }
 }

@@ -14,7 +14,7 @@ public class wy002 {
         Scanner sc = new Scanner(System.in);
         int time = sc.nextInt();
         for (int i = 0; i < time; i++) {
-            int n = sc.nextInt(), ans = 0;
+            int n = sc.nextInt(), res = 0;
             int[][] res = new int[n][4];
             for (int j = 0; j < n; j++) {
                 for (int k = 0; k < 4; k++) {
@@ -29,22 +29,22 @@ public class wy002 {
                     if (isVaild(res[j], res[k])) {
                         set.add(j);
                         set.add(k);
-                        ans += vaildSize(res[j], res[k]);
+                        res += vaildSize(res[j], res[k]);
                         break;
                     }
                 }
             }
-            System.out.println(ans);
+            System.out.println(res);
         }
     }
 
     public static int vaildSize(int[] a1, int[] a2) {//计算有效面积
-        int ans = (a2[3] - a2[1]) * (a2[2] - a2[0]);
-        ans += (a1[3] - a1[1]) * (a1[2] - a1[0]);
+        int res = (a2[3] - a2[1]) * (a2[2] - a2[0]);
+        res += (a1[3] - a1[1]) * (a1[2] - a1[0]);
         int x1 = Math.max(a1[0], a2[0]), x2 = Math.min(a1[2], a2[2]);
         int y1 = Math.max(a1[1], a2[1]), y2 = Math.min(a1[3], a2[3]);
-        ans -= (y2 - y1) * (x2 - x1);//重复部分
-        return ans;
+        res -= (y2 - y1) * (x2 - x1);//重复部分
+        return res;
     }
 
     public static boolean isVaild(int[] a1, int[] a2) {//要重叠才算有效

@@ -24,14 +24,14 @@ public class dajiang {
             int tem1 = count1[0] + Math.min(count1[1], count1[2]);
             int[] count2 = count(split, 0, N-2);
             int tem2 = count2[0] + Math.min(count2[1], count2[2]);
-            int ans = Math.min(tem1,tem2);          // 放弃首尾的最小消耗
+            int res = Math.min(tem1,tem2);          // 放弃首尾的最小消耗
             if(N >= 6){
                 count1 = count(split, 0, 2);
                 count2 = count(split, 3, N-1);
                 tem1 = count1[0] + Math.min(count1[1], count1[2]);
                 tem2 = count2[0] + Math.min(count2[1], count2[2]);
                 int tem = tem1+tem2;
-                ans = Math.min(ans,tem);
+                res = Math.min(res,tem);
                 for (int i = 3; i < N-3 ; i+=2) {
                     // 第 i、i+1 个从后段加到前段
                     // 处理 i；
@@ -85,10 +85,10 @@ public class dajiang {
                     tem1 = count1[0] + Math.min(count1[1], count1[2]);
                     tem2 = count2[0] + Math.min(count2[1], count2[2]);
                     tem = tem1+tem2;
-                    ans = Math.min(ans,tem);
+                    res = Math.min(res,tem);
                 }
             }
-            System.out.println(ans);
+            System.out.println(res);
         }
 
     }

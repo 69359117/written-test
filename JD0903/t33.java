@@ -19,15 +19,15 @@ public class t33 {
                 valid.add(new int[]{temp, i});
             }
         }
-        int ans = 0;
+        int res = 0;
         for (int i = 0; i < s.length() - 1; i++) {//左侧i从0~n-2
             for (int j = i + 1; j < s.length(); j++) {//右侧从i+1~n-1
                 for(int[] va : valid){
-                    if(i <= va[0] && j >= va[1]) ans += 2;
+                    if(i <= va[0] && j >= va[1]) res += 2;
                 }
             }
         }
-        System.out.println(ans);
+        System.out.println(res);
     }
 
     //求子串sub的权重（最长合法 子序列 长度）

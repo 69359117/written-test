@@ -12,15 +12,15 @@ public class t3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
-        int ans = 0;
+        int res = 0;
         for (int i = 0; i < s.length() - 1; i++) {//左侧i从0~n-2
             for (int j = i + 1; j < s.length(); j++) {//右侧从i+1~n-1
                 String sub = s.substring(i, j+1);
                 int temp = solution(sub);
-                ans += temp;
+                res += temp;
             }
         }
-        System.out.println(ans);
+        System.out.println(res);
     }
 
     //求子串sub的权重（最长合法 子序列 长度）

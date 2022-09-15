@@ -15,7 +15,7 @@ public class Amazon2 {
     }
 
     public static long Solution(long num){
-        long ans = 0;
+        long res = 0;
         if(num==1 || num == 2){
             return num;
         }
@@ -23,14 +23,14 @@ public class Amazon2 {
         for (int i = 2; i <= num/2; i++) {
             while (num%i == 0){
                 num = num / i;
-                ans+=i;
+                res+=i;
             }
         }
         if(num>1){
-            ans+=num;
+            res+=num;
         }
 
 
-        return ans;
+        return res;
     }
 }

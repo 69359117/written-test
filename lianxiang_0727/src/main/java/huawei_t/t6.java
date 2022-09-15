@@ -9,7 +9,7 @@ public class t6 {
 
 
     static long[][][] find ;
-    static boolean[][][] visited ;
+    static boolean[][][] used ;
 //    static int T, n, m, k;
 
     public static void main(String[] args) {
@@ -26,13 +26,13 @@ public class t6 {
                 }
             }
         }
-        visited = new boolean[n+1][m+1][k+1];
+        used = new boolean[n+1][m+1][k+1];
         System.out.println(dfs(n, m, k));
     }
 
     public static long dfs(int n, int m, int k) {
         if (n > m) return dfs(m, n, k);
-        if (visited[n][m][k]) return find[n][m][k];     // n*m 划分 k 块需要的
+        if (used[n][m][k]) return find[n][m][k];     // n*m 划分 k 块需要的
         if (k<=1) {
             find[n][m][k] = 0;
             return 0;
@@ -56,7 +56,7 @@ public class t6 {
                 find[n][m][k] = Math.min(find[n][m][k], dfs(i,n,  j) + dfs(m - i, n, k - j) + n * n);
             }
         }
-        visited[n][m][k] = true;
+        used[n][m][k] = true;
 
         return find[n][m][k];
     }
