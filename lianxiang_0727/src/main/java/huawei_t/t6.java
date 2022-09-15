@@ -30,11 +30,10 @@ public class t6 {
         System.out.println(dfs(n, m, k));
     }
 
-    public static long dfs(long n, long m, long k) {
+    public static long dfs(int n, int m, int k) {
         if (n > m) return dfs(m, n, k);
         if (visited[n][m][k]) return find[n][m][k];     // n*m 划分 k 块需要的
-        visited[n][m][k] = true;
-        if (k==1) {
+        if (k<=1) {
             find[n][m][k] = 0;
             return 0;
         }
@@ -46,15 +45,19 @@ public class t6 {
 
 
         for (int i = 1; i <= n / 2; i++) {
-            for (int j = 1; j <= Math.min(i * m, k); j++) {
-                find[n][m][k] = Math.min(find[n][m][k], dfs(i, m, j) + dfs(n - i, m, k - j) + m * m);
+            for (int j = 1; j <= Math.min(i * m, k-1); j++) {
+//                find[n][m][k] = Math.min(find[n][m][k], dfs(i, m, j) + dfs(n - i, m, k - j) + m * m);
+                find[n][m][k] = Math.min(find[n][m][k], dfs(m,i, j) + dfs(m, n - i, k - j) + m * m);
             }
         }
         for (int i = 1; i <= m / 2; i++) {
-            for (int j = 1; j <= Math.min(i * n, k); j++) {
-                find[n][m][k] = Math.min(find[n][m][k], dfs(n, i, j) + dfs(n, m - i, k - j) + n * n);
+            for (int j = 1; j <= Math.min(i * n, k-1); j++) {
+//                find[n][m][k] = Math.min(find[n][m][k], dfs(n, i, j) + dfs(n, m - i, k - j) + n * n);
+                find[n][m][k] = Math.min(find[n][m][k], dfs(i,n,  j) + dfs(m - i, n, k - j) + n * n);
             }
         }
+        visited[n][m][k] = true;
+
         return find[n][m][k];
     }
 
