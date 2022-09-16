@@ -44,19 +44,7 @@ public class t4 {
             }
 
         }
-//        for (int i = 0, j = 1; j < sb.length(); i++, j++) {
-//            if(sb.charAt(i) == sb.charAt(j)){
-//                sb.deleteCharAt(i);
-//                sb.deleteCharAt(i);
-//                count++;
-//                i--;
-//                j--;
-//                if(i > 0){
-//                    i--;
-//                    j--;
-//                }
-//            }
-//        }
+
         return count%2 == 1;
     }
 }

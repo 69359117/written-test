@@ -33,11 +33,12 @@ public class t2_old {
                 continue;
             }
             // 踏前斩 有收益 的条件：怪物伤血、累积mp
-            while (i < ints.length-2 && ints[i]>=1 && ints[i+1] >=2 && ints[i+2] >=3){
+            if(i < ints.length-2 && ints[i]>=1 && ints[i+1] >=2 && ints[i+2] >=3){
                 sum+=5;
                 ints[i]-=1;
                 ints[i+1]-=2;
                 ints[i+2]-=3;
+                continue;
             }
             // 踏前斩 无收益，强力攻击、击杀当前怪物
             sum += ints[i];

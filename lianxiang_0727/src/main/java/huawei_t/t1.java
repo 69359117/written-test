@@ -34,18 +34,32 @@ public class t1 {
         for (int i = 1; i < N + 2; i++) {//第几个木板
 //            for (int j = 1; j < M + 1; j++) {//j是生命值
 
-                if(j < M && !bridge[i-1]){//i-1缺失
-                    dp[i][j] = dp[i-1][j+1];
+                if(!bridge[i-1]){//i-1缺失
+                    if(j < M) dp[i][j] = dp[i-1][j+1];
+                    else{
+                        dp[i][j] = dp[i-1][j+1];
+                        j--;
+                    }
                 }else {
                     dp[i][j] = dp[i-1][j];
                 }
-                if(j < M && i>=2 && !bridge[i-2]){//i-2缺失
-                    dp[i][j] += dp[i-2][j+1];
+
+                if(i>=2 && !bridge[i-2]){//i-2缺失
+                    if(j < M) dp[i][j] += dp[i-2][j+1];
+                    else{
+                        dp[i][j] += dp[i-2][j+1];
+                        j--;
+                    }
                 }else if(i >= 2){
                     dp[i][j] += dp[i-2][j];
                 }
-                if(j < M && i>=3 && !bridge[i-3]){//i-3缺失
-                    dp[i][j] += dp[i-3][j+1];
+
+                if(i>=3 && !bridge[i-3]){//i-3缺失
+                    if(j < M) dp[i][j] += dp[i-3][j+1];
+                    else{
+                        dp[i][j] += dp[i-3][j+1];
+                        j--;
+                    }
                 }else if(i >= 3){
                     dp[i][j] += dp[i-3][j];
                 }

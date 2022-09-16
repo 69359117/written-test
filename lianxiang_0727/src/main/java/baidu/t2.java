@@ -66,6 +66,7 @@ public class t2 {
             }
             if(ints[i]>0){
                 sum += ints[i];
+                ints[i] = 0;
             }
 
             i++;
