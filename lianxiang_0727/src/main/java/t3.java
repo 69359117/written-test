@@ -24,8 +24,7 @@ public class t3 {
             flags = flags ^ ( 1 << (now) );
             pres[i + 1] = flags;
             for (int j = 0; j <= i; j++) {
-                int tem = pres[j];
-                tem = tem ^ flags;
+                int tem = pres[j] ^ flags;
                 if (tem != 0 && (tem & (tem - 1)) == 0) {
                     res++;
                 }

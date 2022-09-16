@@ -1,7 +1,11 @@
+package Old;
+
 import java.util.Scanner;
 
 
-public class huawei3_3 {
+
+
+public class huawei3 {
 
     public static void main(String[] args) {
 
