@@ -21,7 +21,7 @@ import java.util.*;
 
 public class Wangyi4 {
 
-    static long anss = 0;
+    static long ress = 0;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -50,18 +50,18 @@ public class Wangyi4 {
 
     public static void solution(HashMap<Integer, ArrayList<Integer>> map,int[] power ) {
         int N = 1000000000 + 7;
-        long ans = 0;
+        long res = 0;
         long tem = 1;
 
         for (int now : map.get(1)) {
             // 返回：子树权值乘积
             long dfs = dfs(1, now, map,power);
-            anss = (anss + find(dfs)) % N;
+            ress = (ress + find(dfs)) % N;
             tem = (tem * dfs) ;
         }
         tem *= power[0];
-        anss = (anss + find(tem)) % N;
-        System.out.println(anss);
+        ress = (ress + find(tem)) % N;
+        System.out.println(ress);
     }
 
     // 返回子树乘积
@@ -76,7 +76,7 @@ public class Wangyi4 {
                 continue;
             }
             long dfs = dfs(now, i, map,power);
-            anss = (anss + find(dfs)) % N;
+            ress = (ress + find(dfs)) % N;
             tem = (tem * dfs) ;
         }
         return tem * power[now-1];
@@ -84,16 +84,16 @@ public class Wangyi4 {
 
 
     public static long find(long num) {
-        long ans = 0;
+        long res = 0;
         int N = 1000000000+7;
         for (long i = 1; i <=num/2; i++) {
             if (num % i == 0) {
-                ans++;
+                res++;
             }
         }
         if(num!=1){
-            ans++;
+            res++;
         }
-        return ans;
+        return res;
     }
 }

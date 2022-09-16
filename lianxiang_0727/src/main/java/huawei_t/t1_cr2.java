@@ -59,11 +59,11 @@
 //                }
 //            }
 //        }
-//        int ans=0;
+//        int res=0;
 //        for(int i=0;i<=m;i++){
-//            ans+=dp[n+1][i];
+//            res+=dp[n+1][i];
 //        }
-//        System.out.println(ans);
+//        System.out.println(res);
 //    }
 //}
 ///*

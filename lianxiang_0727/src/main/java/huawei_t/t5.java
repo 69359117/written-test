@@ -5,13 +5,13 @@
  */
 public class t5 {
     static int[][][] find = new int[31][31][51];
-    static boolean[][][] visited = new boolean[31][31][51];
+    static boolean[][][] used = new boolean[31][31][51];
     static int T, n, m, k;
     
     public static int dfs(int n, int m, int k) {
         if (n > m) return dfs(m, n, k);
-        if (visited[n][m][k]) return find[n][m][k];
-        visited[n][m][k] = true;
+        if (used[n][m][k]) return find[n][m][k];
+        used[n][m][k] = true;
         if (k == 0 || n * m == k) return find[n][m][k] = 0;
         for (int i = 1; i <= n / 2; i++) {
             for (int j = 0; j <= Math.min(i * m, k); j++) {

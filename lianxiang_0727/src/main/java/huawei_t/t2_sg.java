@@ -11,7 +11,7 @@ public class t2_sg {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();
         int n = sc.nextInt();
-        int ans = Integer.MAX_VALUE;
+        int res = Integer.MAX_VALUE;
         int[] hold = new int[n];
         for (int i = 0; i < n; i++) hold[i] = sc.nextInt();
 
@@ -21,7 +21,7 @@ public class t2_sg {
 //#include<iostream>
 //using namespace std;
 //
-//int m,n,ans = INT_MAX;
+//int m,n,res = INT_MAX;
 //vector<int>v1,v2,v3;
 //vector<int>dp;
 //void func(int k){
@@ -29,7 +29,7 @@ public class t2_sg {
 //        int tmp = dp[0];
 //        for(int i = 0; i < n; ++i)
 //        if(tmp < dp[i]) tmp = dp[i];
-//        if (tmp < ans)ans = tmp;
+//        if (tmp < res)res = tmp;
 //        return;
 //    }
 //
@@ -51,6 +51,6 @@ public class t2_sg {
 //    for(int i = 0; i < m; ++i)cin>>v2[i];
 //    for(int i = 0; i < m; ++i)cin>>v3[i];
 //    func(0);
-//    cout<<ans;
+//    cout<<res;
 //    return 0;
 //}

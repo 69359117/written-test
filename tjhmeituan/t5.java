@@ -17,7 +17,7 @@
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        int n = sc.nextInt();//总数
-//        int ans = 0;
+//        int res = 0;
 //        int[] arr = new int[n];
 //        int[] brr = new int[n];
 //        int[] crr = new int[n];

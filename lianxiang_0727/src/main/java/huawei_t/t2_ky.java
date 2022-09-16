@@ -34,11 +34,11 @@
 //        pq.pop();
 //        pq.push(x+pkg[i].second);
 //    }
-//    int ans = 0;
+//    int res = 0;
 //    while(!pq.empty()){
-//        ans = pq.top();
+//        res = pq.top();
 //        pq.pop();
 //    }
-//    cout << ans;
+//    cout << res;
 //    return 0;
 //}

@@ -49,7 +49,7 @@ public class Zijie1 {
             notfix[ss[0]-'a']++;
             numnotfix++;
         }
-        int ans = 1;
+        int res = 1;
         while (r < ss.length-1){
             r++;
             char now = ss[r];

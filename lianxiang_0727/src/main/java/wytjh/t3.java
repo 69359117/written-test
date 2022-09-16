@@ -11,17 +11,17 @@
 //public class t3 {
 //    public static void main(String[] args) {
 //        int num = 60;
-//        long ans = 0;
+//        long res = 0;
 //        int N = 1000000000+7;
 //        for (long i = 1; i <=num/2; i++) {
 //            if (num % i == 0) {
-//                ans++;
+//                res++;
 //            }
 //        }
 //        if(num!=1){
-//            ans++;
+//            res++;
 //        }
-//        System.out.println(ans);
+//        System.out.println(res);
 //    }
 //
 //}

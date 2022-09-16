@@ -21,11 +21,11 @@ public class t1sg {
             int x = nums[i] % k;
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
-        int ans = 0;
+        int res = 0;
         Set<Map.Entry<Integer, Integer>> entries = map.entrySet();
         for(Map.Entry<Integer, Integer> entry : entries){
-            ans = Math.max(ans, entry.getValue());
+            res = Math.max(res, entry.getValue());
         }
-        System.out.println(ans);
+        System.out.println(res);
     }
 }

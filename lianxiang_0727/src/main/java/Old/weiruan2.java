@@ -27,7 +27,7 @@ public class weiruan2 {
 
     public static int sount(String S ){
 
-        int ans = Integer.MAX_VALUE;
+        int res = Integer.MAX_VALUE;
         ArrayList<Integer> reds = new ArrayList<>();
         for (int i = 0; i < S.length(); i++) {
             if(S.charAt(i)=='R'){
@@ -40,13 +40,13 @@ public class weiruan2 {
         }
 
         outer:for (int i = 0; i < size; i++) {
-            int tem_ans = 0;
+            int tem_res = 0;
             int tem_mid = reds.get(i);
             // 前半部分
             int tem = tem_mid-1;
             for (int j = 0; j < i; j++) {
-                tem_ans += (tem-reds.get(j));
-                if(tem_ans > 1000000000){
+                tem_res += (tem-reds.get(j));
+                if(tem_res > 1000000000){
                     continue outer;
                 }
                 tem--;
@@ -55,27 +55,27 @@ public class weiruan2 {
             // 后半部分
             tem = tem_mid+1;
             for (int j = i+1; j < size; j++) {
-                tem_ans += (reds.get(j)-tem);
-                if(tem_ans > 1000000000){
+                tem_res += (reds.get(j)-tem);
+                if(tem_res > 1000000000){
                     continue outer;
                 }
                 tem++;
             }
 
-            ans = Math.min(ans,tem_ans);
+            res = Math.min(res,tem_res);
         }
 
-        if(ans==Integer.MAX_VALUE){
+        if(res==Integer.MAX_VALUE){
             return -1;
         }
 
-        return ans;
+        return res;
 
     }
 
 
 //    public static int count2(String S ){
-//        int ans = Integer.MAX_VALUE;
+//        int res = Integer.MAX_VALUE;
 //        LinkedList<Integer> reds = new LinkedList<>();
 //        for (int i = 0; i < S.length(); i++) {
 //            if(S.charAt(i)=='R'){

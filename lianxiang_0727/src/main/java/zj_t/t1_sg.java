@@ -35,11 +35,11 @@ public class t1_sg {
             }
         }
 
-        int ans = 0;
+        int res = 0;
         for (int i = 0; i < M; i++) {//第一行出发点
-            ans = Math.max(ans, solution(score, 0, i));
+            res = Math.max(res, solution(score, 0, i));
         }
-        System.out.println(ans);
+        System.out.println(res);
     }
 
     public static int solution(int[][] score, int n, int m){//n为行数 m为列数
@@ -48,13 +48,13 @@ public class t1_sg {
         int point = n * M + m;
         if( map.containsKey(point) ) return map.get(point);
 
-        int ans = 0;
+        int res = 0;
         if(score[n][m] == -1){
-            ans += Math.max(solution(score, n + 1, m + 1), solution(score, n + 1, m - 1));
+            res += Math.max(solution(score, n + 1, m + 1), solution(score, n + 1, m - 1));
         }else{
-            ans += solution(score, n + 1, m) + score[n][m];
+            res += solution(score, n + 1, m) + score[n][m];
         }
-        map.put(point, ans);
-        return ans;
+        map.put(point, res);
+        return res;
     }
 }

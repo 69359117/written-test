@@ -35,7 +35,7 @@ public class keda22 {
     }
 
     public static void solution(int way,TreeSet<int[]> ants){
-        int ans= 0;
+        int res= 0;
         boolean start = true;
         int l=-99 ,r=-99 ,temR = -99 ,temIndex = -99 ;
         for (int[] ant : ants) {
@@ -45,7 +45,7 @@ public class keda22 {
                     System.out.println(false);
                     return;
                 }else {
-                    ans++;
+                    res++;
                     r = ant[1];
                     temR = ant[1];
                     continue;
@@ -56,7 +56,7 @@ public class keda22 {
                     temR = ant[1];
                 }
             }else {
-                ans++;
+                res++;
                 r = temR;
             }
 
@@ -64,7 +64,7 @@ public class keda22 {
         }
 
         if(r >= way){
-            System.out.println(ans);
+            System.out.println(res);
         }else {
             System.out.println(false);
         }

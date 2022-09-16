@@ -23,7 +23,7 @@ public class weilai {
             return 0;
         }
 
-        int ans = 0 ;
+        int res = 0 ;
 
         int min = Integer.MAX_VALUE;
         int min_index = 0;

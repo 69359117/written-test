@@ -24,11 +24,11 @@
 //            return 0;
 //        }
 //
-//        int ans = Integer.MAX_VALUE;
+//        int res = Integer.MAX_VALUE;
 //        if(last[0]==0 || last[1] == 0){         // 全纯色
 //            return 0;
 //        }else {
-//            ans = Math.min(ans , Math.min(last[0],last[1]));
+//            res = Math.min(res , Math.min(last[0],last[1]));
 //        }
 //
 //        for (int i = 0; i < nums.length; i++) {
@@ -41,14 +41,14 @@
 //            }
 //            int tem = 0;
 //            if(last[0]!=0 && last[1] != 0){     // 不是纯色时，选择数量较少颜色、进行涂色
-//                tem += Math.min(ans , Math.min(last[0],last[1]));
+//                tem += Math.min(res , Math.min(last[0],last[1]));
 //            }
 //            if(pre[0]!=0 && pre[1] != 0){
-//                tem += Math.min(ans , Math.min(pre[0],pre[1]));
+//                tem += Math.min(res , Math.min(pre[0],pre[1]));
 //            }
-//            ans = Math.min(ans,tem);
+//            res = Math.min(res,tem);
 //        }
-//        return ans;
+//        return res;
 //    }
 //
 //

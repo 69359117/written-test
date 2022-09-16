@@ -46,11 +46,11 @@
 ////        }
 ////    }
 ////
-////    int ans = 0;
+////    int res = 0;
 ////    for(int i = 1; i <= k; i++){
-////        ans += dp[n+1][i];
+////        res += dp[n+1][i];
 ////    }
-////    cout << ans << endl;
+////    cout << res << endl;
 ////    return 0;
 ////
 ////}
@@ -65,7 +65,7 @@
 //        que[x] = true;
 //    }
 //    dp[0][m] = 1;
-//    long long ans = 0;
+//    long long res = 0;
 //    for(int i = 1; i<= n+1; i++){
 //        for(int j =1; j <= m; j++){
 //            if(que[i]){
@@ -75,9 +75,9 @@
 //            } else{
 //                dp[i][j] = dp[i-1][j] + (i -2 >= 0 ? dp[i-2][j] : 0) + (i -3 >= 0 ? dp[i-3][j] : 0);
 //            }
-//            if(i == n+1) ans += dp[i][j];
+//            if(i == n+1) res += dp[i][j];
 //        }
 //    }
-//    cout << ans;
+//    cout << res;
 //    return 0;
 //}

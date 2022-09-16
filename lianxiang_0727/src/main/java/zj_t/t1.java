@@ -19,8 +19,8 @@ public class t1 {
         }
 
         for (int i = 0; i < M; i++) {//第一行出发点
-            int ans = 0;
-            if(score[0][i] > 0) ans += score[0][i];
+            int res = 0;
+            if(score[0][i] > 0) res += score[0][i];
 
 
         }
