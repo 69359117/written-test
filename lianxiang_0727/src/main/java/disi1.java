@@ -1,21 +1,15 @@
 import java.util.Scanner;
 
-
-
-
-public class huawei2 {
+public class disi1 {
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-        int M = sc.nextInt();
-
-
 
 
     }
 
-    public static void solution(int[] ints){
+    public static void Solution(String str1, String str2) {
 
     }
 }
+
