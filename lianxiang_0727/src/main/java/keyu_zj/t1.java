@@ -52,30 +52,35 @@ public class t1 {
         int count = 0;
         int j = 0;
         for (int i = 0; i < cur.length; i++) {
-            while(j < cur.length - 1){
+
+            while(j == 0 || j < below.length - 1){
                 if(below[j] < 0){//非法情况
                     j++;
                     continue;
                 }
 
-                if(Math.abs(below[j]-cur[i]) <= 50){//单个的，左侧or右侧的
+                if(Math.abs(below[j]-cur[i]) < 50){//单个的，左侧or右侧的
                     count++;
                     break;
                 }
 
+                if(below.length == 1) break;
                 if(cur[i] >= below[j] && cur[i] <= below[j+1]){//在两侧的
 //                    if(cur[i] - below[j] <= 50){
 //                        count++;
 //                        break;
 //                    }
-                    if(below[j+1]-below[j] < 200){
+                    if(below[j+1]-below[j] < 200 && cur[i] - below[j] < 100 && below[j+1] - cur[i] < 100){
                         count++;
                         break;
                     }
                 }
                 j++;
                 //否则，不能固定住，舍弃当前
-                cur[i] = -100;
+                if(j == below.length - 1 || below[j] - cur[i] >= 100){
+                    cur[i] = -100;
+                    break;
+                }
 
             }
         }
