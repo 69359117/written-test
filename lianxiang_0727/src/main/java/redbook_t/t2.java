@@ -14,26 +14,26 @@ import java.util.Scanner;
 public class t2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(), k = sc.nextInt();
-        int[] height = new int[n];
-        for (int i = 0; i < n; i++) height[i] = sc.nextInt();
 
-        int[] dp = new int[n];//dp[i]从0到下标i山峰的最小开销
+        int n = sc.nextInt(), k = sc.nextInt();
+        int[] dp = new int[n];      // 抵达i山的最小花费
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
 
+        int[] mountains = new int[n];
+        for (int i = 0; i < n; i++) {
+            mountains[i] = sc.nextInt();
+        }
+
         for (int i = 0; i < n; i++) {
             for (int j = 1; j <= k; j++) {
-
-                if(i+j < n){
-                    int count = Math.max(height[i + j] - height[i], 0);
-                    dp[i+j] = Math.min(dp[i+j],count+dp[i]);
+                if (i + j < n) {
+                    int cost = Math.max(mountains[i + j] - mountains[i], 0);
+                    dp[i + j] = Math.min(dp[i + j], dp[i] + cost);
                 }
             }
         }
-//        for (int i = 0; i < n; i++) {
-//            System.out.print(dp[i]+" ");
-//        }
-        System.out.println(dp[n-1]);
+
+        System.out.println(dp[n - 1]);
     }
 }
