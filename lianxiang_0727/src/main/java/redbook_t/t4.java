@@ -32,7 +32,8 @@ public class t4 {
     public static int solution(int[] nums){
         int res = 0;
         for (int i = 0; i < nums.length-1; i++) {
-            for (int j = i+1; j < nums.length; j++) {
+            for (int j = nums.length - 1; j >= 1; j--) {
+                if(j - i + 1 <= res) break;
                 int count = 0;
                 int xt = i, yt = j;
                 while(xt < yt && nums[xt] == nums[yt] && nums[xt] <= nums[xt+1] && nums[yt-1] >= nums[yt]){
@@ -41,6 +42,7 @@ public class t4 {
                     yt--;
                 }
                 if(xt == yt) count++;
+//                if(count < res)
                 res = Math.max(res, count);
                 if(res == nums.length) return res;
             }
