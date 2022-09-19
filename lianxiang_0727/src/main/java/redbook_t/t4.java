@@ -34,12 +34,13 @@ public class t4 {
         for (int i = 0; i < nums.length-1; i++) {
             for (int j = i+1; j < nums.length; j++) {
                 int count = 0;
-                while(i < j && nums[i] == nums[j] && nums[i] <= nums[i+1] && nums[j-1] >= nums[j]){
+                int xt = i, yt = j;
+                while(xt < yt && nums[xt] == nums[yt] && nums[xt] <= nums[xt+1] && nums[yt-1] >= nums[yt]){
                     count += 2;
-                    i++;
-                    j--;
+                    xt++;
+                    yt--;
                 }
-                if(i == j) count++;
+                if(xt == yt) count++;
                 res = Math.max(res, count);
             }
         }
