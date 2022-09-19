@@ -42,6 +42,7 @@ public class t4 {
                 }
                 if(xt == yt) count++;
                 res = Math.max(res, count);
+                if(res == nums.length) return res;
             }
         }
         return res;
