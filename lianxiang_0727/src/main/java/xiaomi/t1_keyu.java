@@ -7,19 +7,14 @@ import java.util.Scanner;
 
 /**
  * @author Tdd
- * @creat 2022-09-20 19:08
+ * @creat 2022-09-20 19:38
  */
-/*
-1 3
-2 6
-8 10
-15 18
- */
-public class t1 {
+public class t1_keyu {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<int[]> ans = new ArrayList<>();
-        while(sc.hasNext()){
+        while (sc.hasNext()) {
             int[] temp = new int[2];
             temp[0] = sc.nextInt();
             temp[1] = sc.nextInt();
@@ -29,23 +24,17 @@ public class t1 {
         int[][] interval = ans.toArray(new int[ans.size()][2]);
         Arrays.sort(interval, (o1, o2) -> o1[0] - o2[0]);//左边界排序
 
-        int start = interval[0][0];
-        int end = interval[0][1];
         int count = 0;
-        for (int i = 1; i < interval.length; i++) {
-            if(end >= interval[i][0]){
-                end = Math.max(end, interval[i][1]);
-            }else{
-//                list.add(new int[]{start, end});
-//                start = interval[i][0];
-//                end = interval[i][1];
-                count += (end - start);
-            }
-            if(i == interval.length - 1){
-//                list.add(new int[]{start, end});
-                count += (end - start);
-            }
+        int[][] nowTime = new int[ans.size()][2];
+        int index = -1;
+        for (int[] ints : interval) {
+            if (index == -1 || ints[0] > nowTime[index][1])  nowTime[++index] = ints;
+            else nowTime[index][1] = Math.max(nowTime[index][1], ints[1]);
         }
+
+        int[][] copyOne = Arrays.copyOf(nowTime, index + 1);
+        for (int i = 0; i < copyOne.length; i++) count += copyOne[i][1] - copyOne[i][0];
+
         System.out.println(count);
     }
 }
