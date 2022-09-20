@@ -24,10 +24,10 @@ import java.util.*;
 //        List<Integer> list = new ArrayList<>(); //定义Integer泛型
 //        String str = "abc";
 //        Method[] method=list.getClass().getMethods();//取得list的所有方法
-////        System.out.println(method.length);
-////        for(int i=0;i<method.length;i++){
-////            System.out.println(method[i]);//遍历打印list的方法
-////        }
+//        System.out.println(method.length);
+//        for(int i=0;i<method.length;i++){
+//            System.out.println(method[i]);//遍历打印list的方法
+//        }
 //
 //        //通过反射来执行list的第一个方法,第一个是list对象,代表该对象的方法,第二个是方法参数:  就是list.add(str);
 //        method[0].invoke(list, str);
@@ -92,33 +92,33 @@ public class test {
     public static void main(String[] args) {
         System.out.println(addDigits(38));
     }
-//
-//    public void calcBirthDay() {
-//        System.out.println("请输入生日，请输入一个固定的格式");
-//        System.out.println("例如：10-21");
-//        String input = scanner.next();
-//        String[] inputs = input.split("-");
-//        int month = Integer.parseInt(inputs[0]);
-//        int day = Integer.parseInt(inputs[1]);
-//        int year = c.get(Calendar.YEAR);
-//        Calendar birthday = new GregorianCalendar();
-//        birthday.set(year, month - 1, day);
-//        int last = birthday.get(Calendar.DAY_OF_YEAR);
-//        int first = c.get(Calendar.DAY_OF_YEAR);
-//        int days = c.getActualMaximum(Calendar.DAY_OF_YEAR);
-//        if (birthday.after(c)) {
-//            int m = last - first;
-//            System.out.println("距离他/她过生日还有" + m + "天");
-//        } else {
-//            int m = last - first;
-//            m = Math.abs(m);
-//            System.out.println("她/他的生日已经过去了");
-//            Calendar nextbirthday = new GregorianCalendar();
-//            nextbirthday.set(year + 1, month - 1, day);
-//            int sday = days - last + nextbirthday.get(Calendar.DAY_OF_YEAR);
-//            System.out.println("但是距离下一个生日还有" + sday + "天");
-//        }
-//    }
+
+    public void calcBirthDay() {
+        System.out.println("请输入生日，请输入一个固定的格式");
+        System.out.println("例如：10-21");
+        String input = scanner.next();
+        String[] inputs = input.split("-");
+        int month = Integer.parseInt(inputs[0]);
+        int day = Integer.parseInt(inputs[1]);
+        int year = c.get(Calendar.YEAR);
+        Calendar birthday = new GregorianCalendar();
+        birthday.set(year, month - 1, day);
+        int last = birthday.get(Calendar.DAY_OF_YEAR);
+        int first = c.get(Calendar.DAY_OF_YEAR);
+        int days = c.getActualMaximum(Calendar.DAY_OF_YEAR);
+        if (birthday.after(c)) {
+            int m = last - first;
+            System.out.println("距离他/她过生日还有" + m + "天");
+        } else {
+            int m = last - first;
+            m = Math.abs(m);
+            System.out.println("她/他的生日已经过去了");
+            Calendar nextbirthday = new GregorianCalendar();
+            nextbirthday.set(year + 1, month - 1, day);
+            int sday = days - last + nextbirthday.get(Calendar.DAY_OF_YEAR);
+            System.out.println("但是距离下一个生日还有" + sday + "天");
+        }
+    }
 
     public static int addDigits(int num) {
         int sum = 0;
