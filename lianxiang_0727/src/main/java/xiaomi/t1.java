@@ -32,13 +32,13 @@ public class t1 {
         int start = interval[0][0];
         int end = interval[0][1];
         int count = 0;
-        for (int i = 1; i < interval.length; i++) {
+        for (int i = 1; i < interval.length ; i++) {
             if(end >= interval[i][0]){
                 end = Math.max(end, interval[i][1]);
             }else{
 //                list.add(new int[]{start, end});
-//                start = interval[i][0];
-//                end = interval[i][1];
+                start = interval[i][0];
+                end = interval[i][1];
                 count += (end - start);
             }
             if(i == interval.length - 1){
@@ -46,6 +46,5 @@ public class t1 {
                 count += (end - start);
             }
         }
-        System.out.println(count);
     }
 }
