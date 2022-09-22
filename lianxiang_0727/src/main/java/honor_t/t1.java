@@ -8,6 +8,7 @@ import java.util.Scanner;
  * @creat 2022-09-22 19:02
  */
 //10,left hand
+//50000,right hand
 public class t1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -22,14 +23,14 @@ public class t1 {
         int round = 0;
         while(count != 0){
             if(listLeft.size() == 0 && listRight.size() == 0) {//左侧开始
-                listLeft.add(1);
+                listLeft.add(1);//左加1
                 count -= listLeft.get(listLeft.size() - 1);
                 if (count == 0) {
                     round++;
                     break;
                 }
 
-                listRight.add(1);
+                listRight.add(1);//右加1
                 count -= listRight.get(listRight.size() - 1);
                 round++;
                 if (count == 0) break;
@@ -73,7 +74,7 @@ public class t1 {
                 }
             }
         }
-        else{//右侧
+        else{//输出右侧序列
             System.out.println("now is " + round + " times by right hand");
             if(listRight.size() == 0){
                 System.out.println("right hand has not touch the ball");
