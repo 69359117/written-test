@@ -9,71 +9,77 @@ import java.util.*;
 
 
 public class t3 {
-    static class Stu implements Comparable {
+    static class Student implements Comparable {
         String name;
-        int x, y, z;
+        int yuwen, math, english;
         int sum;
 
         public int compareTo(Object o) {
-            Stu as = (Stu) o;
-            if (sum != as.sum) {
-                return as.sum - sum;
+            Student other = (Student) o;
+            if (sum != other.sum) {
+                return other.sum - sum;
             }
-            if (x != as.x) {
-                return as.x - x;
+            if (yuwen != other.yuwen) {
+                return other.yuwen - yuwen;
             }
-            if (y != as.y) {
-                return as.y - y;
+            if (math != other.math) {
+                return other.math - math;
             }
-            if (z != as.z) {
-                return as.z - z;
+            if (english != other.english) {
+                return other.english - english;
             }
-            return name.compareTo(as.name);
+            return name.compareTo(other.name);
         }
-    }
-
-    static Stu a[] = new Stu[10];
-
-    static void print(int i) {
-        System.out.println(a[i].name + " " + a[i].x + " " + a[i].y + " " + a[i].z);
     }
 
     static boolean check(int i) {
-        return a[i].x >= 60 && a[i].y >= 60 && a[i].z >= 60;
+        return students[i].yuwen >= 60 && students[i].math >= 60 && students[i].english >= 60;
     }
 
+    static void pr(int i) {
+        System.out.println(students[i].name + " " + students[i].yuwen + " " + students[i].math + " " + students[i].english);
+    }
+
+    static Student students[] = new Student[10];
+
     public static void main(String[] args) {
+        String s, tem[];
         Scanner scanner = new Scanner(System.in);
-        String s, tmp[];
         for (int i = 0; i < 10; i++) {
             s = scanner.nextLine();
-            tmp = s.split(" ");
-            a[i] = new Stu();
-            a[i].name = tmp[0];
-            a[i].x = Integer.parseInt(tmp[1]);
-            a[i].y = Integer.parseInt(tmp[2]);
-            a[i].z = Integer.parseInt(tmp[3]);
-            a[i].sum = a[i].x + a[i].y + a[i].z;
+            tem = s.split(" ");
+            students[i] = new Student();
+            students[i].name = tem[0];
+            students[i].yuwen = Integer.parseInt(tem[1]);
+            students[i].math = Integer.parseInt(tem[2]);
+            students[i].english = Integer.parseInt(tem[3]);
+            students[i].sum = students[i].yuwen + students[i].math + students[i].english;
         }
-        Arrays.sort(a);
+        Arrays.sort(students);
         System.out.println("[First round name list]");
         for (int i = 0; i < 10; i++) {
             if (check(i)) {
-                print(i);
+                pr(i);
             }
         }
         System.out.println("");
         System.out.println("[Final name list]");
-        print(0);
-        int cnt = 1;
-        for (int i = 1; i < 10; i++) {
+//        pr(0);
+//        int count = 1;
+        int count = 0;
+        for (int i = 0; i < 10; i++) {
             if (!check(i)) continue;
-            if (a[i].x == a[i - 1].x && a[i].y == a[i - 1].y && a[i].z == a[i - 1].z) {
-                print(i);
+            if(i==0){
+                pr(i);
+                count++;
+                continue;
+            }
+            if (students[i].yuwen == students[i - 1].yuwen && students[i].math == students[i - 1].math && students[i].english == students[i - 1].english) {
+                pr(i);
             } else {
-                cnt++;
-                if (cnt == 4) break;
-                print(i);
+                count++;
+                if (count == 4) break;
+                pr(i);
             }
         }
     }
