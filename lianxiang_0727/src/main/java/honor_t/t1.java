@@ -27,13 +27,17 @@ public class t1 {
                 count -= listLeft.get(listLeft.size() - 1);
                 if (count == 0) {
                     round++;
+                    leftFirst = true;
                     break;
                 }
 
                 listRight.add(1);//右加1
                 count -= listRight.get(listRight.size() - 1);
                 round++;
-                if (count == 0) break;
+                if (count == 0) {
+                    leftFirst = false;
+                    break;
+                }
 
             }else{//非开始时
                 //左侧
@@ -43,6 +47,7 @@ public class t1 {
                 count -= temp;
                 if (count == 0) {
                     round++;
+                    leftFirst = true;
                     break;
                 }
                 //右侧
@@ -51,7 +56,10 @@ public class t1 {
                 listRight.add(temp2);
                 count -= temp2;
                 round++;
-                if (count == 0) break;
+                if (count == 0) {
+                    leftFirst = false;
+                    break;
+                }
             }
         }
 

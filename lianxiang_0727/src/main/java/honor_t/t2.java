@@ -21,7 +21,7 @@ public class t2 {
 
         //然后通过比较器来实现排序
         Collections.sort(list,new Comparator <Map.Entry>() {
-            //升序排序
+            //value升序排序
             @Override
             public int compare(Map.Entry o1, Map.Entry o2) {
                 return (Integer)o1.getValue() - (Integer)o2.getValue();
