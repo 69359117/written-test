@@ -52,13 +52,35 @@ public class t1 {
                 if (count == 0) break;
             }
         }
-        if(leftFirst){
+        if(leftFirst){//输出左侧序列
             System.out.println("now is " + round + " times by left hand");
-            for(int i : listLeft) System.out.print(i + " ");
+            if(listLeft.size() == 0){
+                System.out.println("left hand has not touch the ball");
+                return;
+            }
+
+            for(int i : listLeft){
+                for (int j = 0; j < 10; j++) {
+                    if(j < 9) System.out.print(i + " ");
+                    else System.out.print(i);
+                }
+                System.out.println();
+            }
         }
-        else{
+        else{//右侧
             System.out.println("now is " + round + " times by right hand");
-            for(int i : listRight) System.out.print(i + " ");
+            if(listRight.size() == 0){
+                System.out.println("right hand has not touch the ball");
+                return;
+            }
+
+            for(int i : listRight){
+                for (int j = 0; j < 10; j++) {
+                    if(j < 9) System.out.print(i + " ");
+                    else System.out.print(i);
+                }
+                System.out.println();
+            }
         }
     }
 }
