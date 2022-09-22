@@ -34,7 +34,8 @@ public class t1 {
                 round++;
                 if (count == 0) break;
 
-            }else{
+            }else{//非开始时
+                //左侧
                 int temp = listLeft.get(listLeft.size() - 1) + listRight.get(listRight.size() - 1);
                 if(temp > count) temp = count;
                 listLeft.add(temp);
@@ -43,15 +44,16 @@ public class t1 {
                     round++;
                     break;
                 }
-
+                //右侧
                 int temp2 = listLeft.get(listLeft.size() - 1) + listRight.get(listRight.size() - 1);
-                if(temp > count) temp = count;
+                if(temp2 > count) temp2 = count;
                 listRight.add(temp2);
                 count -= temp2;
                 round++;
                 if (count == 0) break;
             }
         }
+
         if(leftFirst){//输出左侧序列
             System.out.println("now is " + round + " times by left hand");
             if(listLeft.size() == 0){
@@ -59,12 +61,16 @@ public class t1 {
                 return;
             }
 
+            int j = 0;
             for(int i : listLeft){
-                for (int j = 0; j < 10; j++) {
-                    if(j < 9) System.out.print(i + " ");
-                    else System.out.print(i);
+                if(j < 9){
+                    System.out.print(i + " ");
+                    j++;
+                } else {
+                    System.out.print(i);
+                    System.out.println();
+                    j = 0;
                 }
-                System.out.println();
             }
         }
         else{//右侧
@@ -74,12 +80,16 @@ public class t1 {
                 return;
             }
 
+            int j = 0;
             for(int i : listRight){
-                for (int j = 0; j < 10; j++) {
-                    if(j < 9) System.out.print(i + " ");
-                    else System.out.print(i);
+                if(j < 9){
+                    System.out.print(i + " ");
+                    j++;
+                } else {
+                    System.out.print(i);
+                    System.out.println();
+                    j = 0;
                 }
-                System.out.println();
             }
         }
     }
