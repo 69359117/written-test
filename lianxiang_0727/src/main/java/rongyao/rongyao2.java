@@ -1,9 +1,7 @@
 package rongyao;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.locks.Condition;
 
 /*
 
@@ -30,9 +28,9 @@ public class rongyao2 {
         Scanner sc = new Scanner(System.in);
         String s;
         ArrayList<String> strings = new ArrayList<>();
-        while (true) {
+        while (sc.hasNextLine()) {
             s = sc.nextLine();
-            if (s.equals("")) {
+            if (s!=null && s.equals("")) {
                 break;
             }
             strings.add(s);
@@ -49,10 +47,14 @@ public class rongyao2 {
 
         // 歌曲，分数
         HashMap<String, Integer> points = new HashMap<>();
+//        TreeMap<String, Integer> points = new TreeMap<>();
+
         // 歌曲，种类
         HashMap<String, String> songKind = new HashMap<>();
         // 种类，歌曲集合
         HashMap<String, ArrayList<String>> kindSongs = new HashMap<>();
+
+//        TreeMap<String, ArrayList<String>> kindSongs = new TreeMap<>();
 
         for (String string : strings) {
             String[] s = string.split(" ");
@@ -71,14 +73,14 @@ public class rongyao2 {
                 if (s[0].equals("P")) {   // 当前操作为播放
                     Integer integer = points.get(s[1]);
                     points.put(s[1], integer + 3);
-                    if (lastPlay != null && lastPlay.equals(nowKind)) {
-                        ArrayList<String> songs = kindSongs.get(s[1]);
+                    if (!nowKind.equals("UnkownStyle") && lastPlay != null && lastPlay.equals(nowKind)) {
+                        ArrayList<String> songs = kindSongs.get(nowKind);
                         for (String song : songs) {
                             if (song.equals(s[1])) {
                                 continue;
                             }
                             Integer i = points.get(song);
-                            points.put(s[1], i + 1);
+                            points.put(song, i + 1);
                         }
                     }
                     lastPlay = nowKind;
@@ -86,27 +88,45 @@ public class rongyao2 {
                     Integer integer = points.get(s[1]);
                     points.put(s[1], integer - 2);
 
-                    if (lastBroke != null && lastBroke.equals(nowKind)) {
-                        ArrayList<String> songs = kindSongs.get(s[1]);
+                    if (!nowKind.equals("UnkownStyle") && lastBroke != null && lastBroke.equals(nowKind)) {
+                        ArrayList<String> songs = kindSongs.get(nowKind);
                         for (String song : songs) {
                             if (song.equals(s[1])) {
                                 continue;
                             }
                             Integer i = points.get(song);
-                            points.put(s[1], i - 1);
+                            points.put(song, i - 1);
                         }
                     }
                     lastBroke = nowKind;
                 }
             }
         }
-        for (Map.Entry<String, Integer> stringIntegerEntry : points.entrySet()) {
-            System.out.println(stringIntegerEntry.getKey().toString());
-            System.out.println(stringIntegerEntry.getValue());
+
+//        for (Map.Entry<String, Integer> stringIntegerEntry : points.entrySet()) {
+//            System.out.println(stringIntegerEntry.getKey().toString());
+//            System.out.println(stringIntegerEntry.getValue());
+//        }
+
+//        new TreeMap<String,Integer>()
+//        points
+
+        List<Map.Entry> list = new ArrayList<>(points.entrySet());
+
+        //然后通过比较器来实现排序
+        Collections.sort(list,new Comparator <Map.Entry>() {
+            //升序排序
+            @Override
+            public int compare(Map.Entry o1, Map.Entry o2) {
+                return o1.getValue()==o2.getValue() ? ((String)o1.getKey()).compareTo((String)o2.getKey()) : (Integer)o2.getValue()-(Integer)o1.getValue() ;
+//                return (Integer)o1.getValue() - (Integer)o2.getValue();
+            }
+        });
+
+        for(Map.Entry mapping:list){
+            System.out.println(mapping.getKey()+" "+songKind.get(mapping.getKey()));
         }
-
     }
-
 
 }
 

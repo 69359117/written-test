@@ -64,7 +64,12 @@ public class t1 {
         }
 
         if(leftFirst){//输出左侧序列
-            System.out.println("now is " + round + " times by left hand");
+            if(round%2==1){
+                System.out.println("now is " + round + " times by left hand");
+            }else {
+                System.out.println("now is " + round + " times by right hand");
+            }
+//            System.out.println("now is " + round + " times by left hand");
             if(listLeft.size() == 0){
                 System.out.println("left hand has not touch the ball");
                 return;
@@ -83,7 +88,12 @@ public class t1 {
             }
         }
         else{//输出右侧序列
-            System.out.println("now is " + round + " times by right hand");
+            if(round%2==0){
+                System.out.println("now is " + round + " times by left hand");
+            }else {
+                System.out.println("now is " + round + " times by right hand");
+            }
+//            System.out.println("now is " + round + " times by right hand");
             if(listRight.size() == 0){
                 System.out.println("right hand has not touch the ball");
                 return;
